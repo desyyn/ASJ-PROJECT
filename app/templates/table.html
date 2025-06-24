@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block title %}Scent by Vibe{% endblock %}
+
+{% block content %}
+<style>
+    .container {
+            max-width: 900px;
+            margin: 1rem auto;
+            padding: 1rem;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 3rem;
+            color: #ffdad7;
+            margin-bottom: 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #7a948b;
+            color: #fff;
+        }
+
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        td {
+            color: #7a948b;
+        }
+
+        td a {
+            margin-right: 0.5rem;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        td a:hover {
+            text-decoration: underline;
+        }
+
+        td a:first-child {
+            color: #007bff;
+        }
+
+        td a:last-child {
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Scent Archives</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <th>Mood</th>
+                    <th>Notes</th>
+                    <th>Occasion</th>
+                    <th>Description</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for scent in scents %}
+                <tr>
+                    <td>{{ scent[1] }}</td>
+                    <td>{{ scent[2] }}</td>
+                    <td>{{ scent[3] }}</td>
+                    <td>{{ scent[4] }}</td>
+                    <td>{{ scent[5] }}</td>
+                    <td>
+                        <a href="/edit/{{ scent[0] }}"> Edit </a>
+                        <a href="/delete/{{ scent[0] }}"> Hapus </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

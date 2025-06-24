@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Drop a New Scent{% endblock %}
+
+{% block content %}
+<h1 class="title">Drop a New Scent Here!</h1>
+<div class="form-container">
+    <form method="POST">
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="name">Scent’s Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="occasion">Occasion:</label>
+                <input type="text" id="occasion" name="occasion">
+            </div>
+
+            <div class="form-group">
+                <label for="mood">Mood:</label>
+                <input type="text" id="mood" name="mood" required>
+            </div>
+
+            <div class="form-group">
+                <label for="notes">Notes:</label>
+                <input type="text" id="notes" name="notes">
+            </div>
+
+            <div class="form-group full-width">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4"></textarea>
+            </div>
+        </div>
+
+        <div class="form-button">
+            <button type="submit" class="btn btn-dark">SAVE</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
